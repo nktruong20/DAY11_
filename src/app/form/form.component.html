@@ -1,0 +1,86 @@
+<form [formGroup]="formContact" (ngSubmit)="submitForm()"  action="" method="POST">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Name</label>
+      <input type="text" class="form-control"  formControlName="name">
+      <div *ngIf= " f.name.invalid && (f.name.dirty || f.name.touched)">
+            <div *ngIf="f.name.errors?.['required']">
+                <small class="text-danger">Khong de trong</small>
+            </div>
+            <div *ngIf="f.name.errors?.['minlength']">
+                <small class="text-danger">Tối thiểu 6 kí tự</small>
+            </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Image</label>
+      <input type="text" class="form-control" formControlName="image">
+      <div *ngIf= " f.name.invalid && (f.name.dirty || f.name.touched)">
+        <div *ngIf="f.name.errors?.['required']">
+            <small class="text-danger">Khong de trong</small>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Price</label>
+      <input type="text" class="form-control" id="" formControlName="price">
+      <div *ngIf= " f.name.invalid && (f.name.dirty || f.name.touched)">
+        <div *ngIf="f.name.errors?.['required']">
+            <small class="text-danger">Khong de trong</small>
+        </div>
+        <div *ngIf="f.name.errors?.['min']">
+            <small class="text-danger">hơn 1000</small>
+        </div>
+  </div>
+    </div>
+    <div class="form-group">
+      <label for="">salePrice</label>
+      <input type="text" class="form-control" id="" formControlName="salePrice">
+      <div *ngIf= " f.name.invalid && (f.name.dirty || f.name.touched)">
+        <div *ngIf="f.name.errors?.['required']">
+            <small class="text-danger">Khong de trong</small>
+        </div>
+        <div *ngIf="f.name.errors?.['min']">
+            <small class="text-danger">hơn 1000</small>
+        </div>
+  </div>
+    </div>
+    <div class="form-group">
+      <label for="">description</label>
+      <input type="text" class="form-control" formControlName="description">
+      <div *ngIf= " f.name.invalid && (f.name.dirty || f.name.touched)">
+        <div *ngIf="f.name.errors?.['required']">
+            <small class="text-danger">Khong de trong</small>
+        </div>
+        <div *ngIf="f.name.errors?.['minlength']">
+            <small class="text-danger">hơn 1000</small>
+        </div>
+  </div>
+    </div>
+    <button type="submit"  class="btn btn-primary" >Submit</button>
+  </form>
+
+ <div>
+    <h3>Contact list</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th>price</th>
+                <th>salePrice</th>
+                <th>description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of contactData">
+                <td scope="row">{{item.name}}</td>
+                <td>{{item.image}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.salePrice}}</td>
+                <td>{{item.description}}</td>
+            </tr>
+        </tbody>
+    </table>
+ </div>
+  
+
